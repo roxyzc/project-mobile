@@ -66,12 +66,14 @@ class _Body extends State<LoginBody> {
                   link: "sign_up",
                 ),
                 MyButton(
-                    controller: [usernameController, passwordController],
-                    horizontal: 0,
-                    vertical: 8,
-                    myKey: _formKey,
-                    textButton: "Submit",
-                    text: "Please fill input")
+                  controller: [usernameController, passwordController],
+                  horizontal: 0,
+                  vertical: 8,
+                  myKey: _formKey,
+                  textButton: "Submit",
+                  text: "Please fill input",
+                  link: "home",
+                )
               ],
             ),
           )),

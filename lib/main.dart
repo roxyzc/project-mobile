@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import "package:project_login/view/forgotPassword/forgot_password.dart";
-import "package:project_login/view/login/login.dart";
-import 'package:project_login/view/signup/signup.dart';
+import 'package:project_login/view/forgotPassword/forgot_password.dart';
+import 'package:project_login/view/login/login.dart';
+import 'package:project_login/view/signup/sign_up.dart';
+import 'package:project_login/view/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +24,8 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           "forgot_password": (BuildContext context) =>
               const ForgotPasswordPage(),
-          "sign_up": (BuildContext context) => const SignUpPage()
+          "sign_up": (BuildContext context) => const SignUpPage(),
+          "home": (BuildContext context) => const HomePage(),
         });
   }
 }
