@@ -7,6 +7,7 @@ class MyTextField extends StatelessWidget {
   final bool obscureText;
   final double horizontal;
   final double vertical;
+  final Icon icon;
 
   const MyTextField(
       {super.key,
@@ -14,7 +15,8 @@ class MyTextField extends StatelessWidget {
       required this.hintText,
       required this.obscureText,
       required this.horizontal,
-      required this.vertical});
+      required this.vertical,
+      required this.icon});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,22 @@ class MyTextField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
+          prefixIcon: icon,
           border: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black12),
               borderRadius: BorderRadius.all(Radius.circular(10))),
           hintText: hintText,
           fillColor: const Color.fromARGB(160, 255, 255, 255),
           filled: true,
-          // errorStyle: const TextStyle(fontSize: 0)
+          // label: Text(
+          //   hintText,
+          // ),
+          // labelStyle: const TextStyle(
+          //     backgroundColor: Colors.transparent, color: Colors.black54),
+          focusedBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10.0)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
         ),
         obscureText: obscureText,
         validator: (value) {

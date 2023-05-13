@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 
 class MyButton extends StatelessWidget {
   final GlobalKey<FormState> myKey;
+  final List<TextEditingController> controller;
   final double horizontal;
   final double vertical;
   final String textButton;
@@ -9,6 +10,7 @@ class MyButton extends StatelessWidget {
 
   const MyButton({
     super.key,
+    required this.controller,
     required this.myKey,
     required this.horizontal,
     required this.vertical,
@@ -27,6 +29,7 @@ class MyButton extends StatelessWidget {
           onPressed: () {
             if (myKey.currentState!.validate()) {
               // handle valid form state
+              debugPrint(controller[0].text);
             } else {
               ScaffoldMessenger.of(context)
                   .showSnackBar(SnackBar(content: Text(text)));

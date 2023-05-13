@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
-import "my_text_form_field.dart";
-import "my_text.dart";
-import 'my_button.dart';
+import "../../../components/my_text_form_field.dart";
+import "../../../components/my_text.dart";
+import '../../../components/my_button.dart';
 
 class LoginBody extends StatefulWidget {
   const LoginBody({super.key});
@@ -27,31 +27,46 @@ class _Body extends State<LoginBody> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text(
+                Text(
                   "Login",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: size.height / 20),
                 ),
-                const Image(
-                  image: AssetImage("../assets/images/gambar.png"),
+                Image(
+                  image: const AssetImage("../assets/images/gambar.png"),
                   fit: BoxFit.fitWidth,
                   alignment: Alignment.topCenter,
+                  width: size.height / 2,
                 ),
                 MyTextField(
-                    horizontal: 20,
-                    vertical: 10,
-                    controller: usernameController,
-                    hintText: "Username",
-                    obscureText: false),
+                  horizontal: 20,
+                  vertical: 10,
+                  controller: usernameController,
+                  hintText: "Username",
+                  obscureText: false,
+                  icon: const Icon(Icons.person),
+                ),
                 MyTextField(
-                    horizontal: 20,
-                    vertical: 10,
-                    controller: passwordController,
-                    hintText: "Password",
-                    obscureText: true),
+                  horizontal: 20,
+                  vertical: 10,
+                  controller: passwordController,
+                  hintText: "Password",
+                  obscureText: true,
+                  icon: const Icon(Icons.lock),
+                ),
                 const MyText(
-                    horizontal: 20, vertical: 5, myText: "Forgot Password? "),
-                const MyText(horizontal: 20, vertical: 5, myText: "Sign up"),
+                    horizontal: 25,
+                    vertical: 5,
+                    myText: "Forgot Password? ",
+                    link: "forgot_password"),
+                const MyText(
+                  horizontal: 25,
+                  vertical: 5,
+                  myText: "Sign up? ",
+                  link: "sign_up",
+                ),
                 MyButton(
+                    controller: [usernameController, passwordController],
                     horizontal: 0,
                     vertical: 8,
                     myKey: _formKey,
