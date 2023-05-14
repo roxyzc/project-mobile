@@ -19,18 +19,22 @@ class _Body extends State<LoginBody> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SizedBox(
-          width: double.infinity,
-          height: size.height,
+      body: SafeArea(
+          top: true,
+          right: false,
+          left: false,
+          bottom: true,
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text(
-                  "Login",
+                  "LOGIN",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: size.height / 20),
+                    fontWeight: FontWeight.bold,
+                    fontSize: size.height / 20,
+                  ),
                 ),
                 Image(
                   image: const AssetImage("../assets/images/gambar.png"),
@@ -39,15 +43,15 @@ class _Body extends State<LoginBody> {
                   width: size.height / 2,
                 ),
                 MyTextField(
-                  horizontal: 20,
+                  horizontal: 40,
                   vertical: 10,
                   controller: usernameController,
-                  hintText: "Username",
+                  hintText: "Email",
                   obscureText: false,
                   icon: const Icon(Icons.person),
                 ),
                 MyTextField(
-                  horizontal: 20,
+                  horizontal: 40,
                   vertical: 10,
                   controller: passwordController,
                   hintText: "Password",
@@ -55,12 +59,12 @@ class _Body extends State<LoginBody> {
                   icon: const Icon(Icons.lock),
                 ),
                 const MyText(
-                    horizontal: 25,
+                    horizontal: 45,
                     vertical: 5,
                     myText: "Forgot Password? ",
                     link: "forgot_password"),
                 const MyText(
-                  horizontal: 25,
+                  horizontal: 45,
                   vertical: 5,
                   myText: "Sign up? ",
                   link: "sign_up",

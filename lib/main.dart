@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: "Flutter demo",
-        theme: ThemeData(
-          primaryColor: const Color.fromARGB(255, 124, 171, 228),
-          scaffoldBackgroundColor: const Color.fromARGB(255, 74, 130, 199),
-        ),
+        // theme: ThemeData(
+        //   primaryColor: const Color.fromARGB(255, 124, 171, 228),
+        //   scaffoldBackgroundColor: const Color.fromARGB(255, 74, 130, 199),
+        // ),
         home: const LoginPage(),
         routes: <String, WidgetBuilder>{
           "forgot_password": (BuildContext context) =>

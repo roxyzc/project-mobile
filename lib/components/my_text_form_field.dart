@@ -26,17 +26,15 @@ class MyTextField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           prefixIcon: icon,
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
           border: const OutlineInputBorder(
               borderSide: BorderSide(color: Colors.black12),
               borderRadius: BorderRadius.all(Radius.circular(10))),
           hintText: hintText,
           fillColor: const Color.fromARGB(160, 255, 255, 255),
           filled: true,
-          // label: Text(
-          //   hintText,
-          // ),
-          // labelStyle: const TextStyle(
-          //     backgroundColor: Colors.transparent, color: Colors.black54),
+          errorStyle: const TextStyle(height: 0, color: Colors.transparent),
           focusedBorder: const OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10.0)),
             borderSide: BorderSide(color: Colors.blue),
@@ -45,7 +43,7 @@ class MyTextField extends StatelessWidget {
         obscureText: obscureText,
         validator: (value) {
           if (value == null || value.isEmpty) {
-            return "Please enter your ${hintText.toLowerCase()}";
+            return "";
           }
           return null;
         }, // validator

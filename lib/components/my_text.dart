@@ -31,7 +31,7 @@ class MyText extends StatelessWidget {
             },
             child: Text(
               myText,
-              style: const TextStyle(color: Color.fromARGB(255, 243, 243, 243)),
+              style: TextStyle(color: Colors.blueAccent[200]),
             ),
           ),
         ],
