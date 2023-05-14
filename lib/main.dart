@@ -1,10 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:project_login/view/forgotPassword/forgot_password.dart';
 import 'package:project_login/view/login/login.dart';
 import 'package:project_login/view/signup/sign_up.dart';
 import 'package:project_login/view/home/home_page.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

@@ -21,10 +21,6 @@ class MyText extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // Text(
-          //   myText,
-          //   style: const TextStyle(color: Colors.white30),
-          // ),
           GestureDetector(
             onTap: () {
               Navigator.of(context).pushNamed(link);

@@ -1,4 +1,7 @@
+import "package:firebase_auth/firebase_auth.dart";
+// import "package:firebase_core/firebase_core.dart";
 import "package:flutter/material.dart";
+import "package:project_login/view/home/home_page.dart";
 import "../../../components/my_text_form_field.dart";
 import '../../../components/my_button.dart';
 
@@ -11,7 +14,7 @@ class SignUpBody extends StatefulWidget {
 
 class _Body extends State<SignUpBody> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController usernameController = TextEditingController();
+  // TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -47,14 +50,14 @@ class _Body extends State<SignUpBody> {
                   alignment: Alignment.topCenter,
                   width: MediaQuery.of(context).size.height / 2,
                 ),
-                MyTextField(
-                  horizontal: 40,
-                  vertical: 10,
-                  controller: emailController,
-                  hintText: "Username",
-                  obscureText: false,
-                  icon: const Icon(Icons.person),
-                ),
+                // MyTextField(
+                //   horizontal: 40,
+                //   vertical: 10,
+                //   controller: emailController,
+                //   hintText: "Username",
+                //   obscureText: false,
+                //   icon: const Icon(Icons.person),
+                // ),
                 MyTextField(
                   horizontal: 40,
                   vertical: 10,
@@ -73,14 +76,22 @@ class _Body extends State<SignUpBody> {
                 ),
                 MyButton(
                   horizontal: 0,
-                  vertical: 8,
+                  vertical: 10,
                   textButton: "Submit",
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      //   // handle valid form state
-
-                      //   debugPrint(controller[0].text);
-                      Navigator.of(context).pushNamed("main");
+                      FirebaseAuth.instance
+                          .createUserWithEmailAndPassword(
+                              email: emailController.text,
+                              password: passwordController.text)
+                          .then((value) => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomePage())))
+                          .onError((error, stackTrace) =>
+                              // ignore: avoid_print
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(error.toString()))));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text("Please fill Input")));

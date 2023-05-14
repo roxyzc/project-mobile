@@ -1,4 +1,8 @@
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
+import "package:project_login/view/login/login.dart";
+
+import "../../components/my_button.dart";
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,11 +17,20 @@ class HomePage extends StatelessWidget {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  "Home",
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: size.height / 20),
-                ),
+                MyButton(
+                  horizontal: 0,
+                  vertical: 8,
+                  textButton: "logout",
+                  onPressed: () {
+                    FirebaseAuth.instance.signOut().then((value) => {
+                          // ignore: avoid_print
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const LoginPage()))
+                        });
+                  },
+                )
               ])),
     );
   }

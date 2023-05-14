@@ -1,3 +1,4 @@
+import "package:firebase_auth/firebase_auth.dart";
 import "package:flutter/material.dart";
 import "../../../components/my_text_form_field.dart";
 import "../../../components/my_text.dart";
@@ -12,7 +13,7 @@ class LoginBody extends StatefulWidget {
 
 class _Body extends State<LoginBody> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController usernameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
@@ -20,10 +21,10 @@ class _Body extends State<LoginBody> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
-          top: true,
+          top: false,
           right: false,
           left: false,
-          bottom: true,
+          bottom: false,
           child: Form(
             key: _formKey,
             child: Column(
@@ -45,7 +46,7 @@ class _Body extends State<LoginBody> {
                 MyTextField(
                   horizontal: 40,
                   vertical: 10,
-                  controller: usernameController,
+                  controller: emailController,
                   hintText: "Email",
                   obscureText: false,
                   icon: const Icon(Icons.person),
@@ -75,10 +76,17 @@ class _Body extends State<LoginBody> {
                   textButton: "Submit",
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      //   // handle valid form state
-
-                      //   debugPrint(controller[0].text);
-                      Navigator.of(context).pushNamed("home");
+                      FirebaseAuth.instance
+                          .signInWithEmailAndPassword(
+                              email: emailController.text,
+                              password: passwordController.text)
+                          .then((value) =>
+                              Navigator.of(context).pushNamed("home"))
+                          .onError((error, stackTrace) => {
+                                // ignore: avoid_print
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text(error.toString())))
+                              });
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text("Please fill Input")));

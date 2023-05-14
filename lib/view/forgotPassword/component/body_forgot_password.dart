@@ -66,14 +66,13 @@ class _Body extends State<ForgotPasswordBody> {
                 ),
                 MyButton(
                   horizontal: 0,
-                  vertical: 8,
+                  vertical: 10,
                   textButton: "Submit",
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      //   // handle valid form state
-
-                      //   debugPrint(controller[0].text);
-                      Navigator.of(context).pushNamed("main");
+                      // Navigator.of(context).pushNamed("main");
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                          content: Text("Feature not yet available")));
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(content: Text("Please fill Input")));
