@@ -25,10 +25,10 @@ class _Body extends State<SignUpBody> {
         elevation: 0,
       ),
       body: SafeArea(
-          top: true,
+          top: false,
           right: false,
           left: false,
-          bottom: true,
+          bottom: false,
           child: Form(
             key: _formKey,
             child: Column(
@@ -72,17 +72,20 @@ class _Body extends State<SignUpBody> {
                   icon: const Icon(Icons.lock),
                 ),
                 MyButton(
-                  controller: [
-                    usernameController,
-                    emailController,
-                    passwordController
-                  ],
                   horizontal: 0,
                   vertical: 8,
-                  myKey: _formKey,
                   textButton: "Submit",
-                  text: "Please fill input",
-                  link: "home",
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      //   // handle valid form state
+
+                      //   debugPrint(controller[0].text);
+                      Navigator.of(context).pushNamed("main");
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Please fill Input")));
+                    }
+                  },
                 )
               ],
             ),

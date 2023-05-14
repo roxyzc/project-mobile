@@ -70,13 +70,20 @@ class _Body extends State<LoginBody> {
                   link: "sign_up",
                 ),
                 MyButton(
-                  controller: [usernameController, passwordController],
                   horizontal: 0,
                   vertical: 8,
-                  myKey: _formKey,
                   textButton: "Submit",
-                  text: "Please fill input",
-                  link: "home",
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      //   // handle valid form state
+
+                      //   debugPrint(controller[0].text);
+                      Navigator.of(context).pushNamed("home");
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Please fill Input")));
+                    }
+                  },
                 )
               ],
             ),

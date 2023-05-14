@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
               const ForgotPasswordPage(),
           "sign_up": (BuildContext context) => const SignUpPage(),
           "home": (BuildContext context) => const HomePage(),
+          "main": ((context) => const LoginPage())
         });
   }
 }

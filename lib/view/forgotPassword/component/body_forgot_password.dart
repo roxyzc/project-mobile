@@ -29,10 +29,10 @@ class _Body extends State<ForgotPasswordBody> {
         ),
       ),
       body: SafeArea(
-          top: true,
+          top: false,
           right: false,
           left: false,
-          bottom: true,
+          bottom: false,
           child: Form(
             key: _formKey,
             child: Column(
@@ -65,13 +65,20 @@ class _Body extends State<ForgotPasswordBody> {
                   icon: const Icon(Icons.lock),
                 ),
                 MyButton(
-                  controller: [emailController, newPasswordController],
                   horizontal: 0,
                   vertical: 8,
-                  myKey: _formKey,
                   textButton: "Submit",
-                  text: "Please fill input",
-                  link: "home",
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      //   // handle valid form state
+
+                      //   debugPrint(controller[0].text);
+                      Navigator.of(context).pushNamed("main");
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text("Please fill Input")));
+                    }
+                  },
                 )
               ],
             ),
