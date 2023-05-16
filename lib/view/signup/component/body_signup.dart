@@ -50,14 +50,6 @@ class _Body extends State<SignUpBody> {
                   alignment: Alignment.topCenter,
                   width: MediaQuery.of(context).size.height / 2,
                 ),
-                // MyTextField(
-                //   horizontal: 40,
-                //   vertical: 10,
-                //   controller: emailController,
-                //   hintText: "Username",
-                //   obscureText: false,
-                //   icon: const Icon(Icons.person),
-                // ),
                 MyTextField(
                   horizontal: 40,
                   vertical: 10,

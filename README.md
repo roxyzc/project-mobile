@@ -1,5 +1,9 @@
 # project_login
 
+**_<p>Nama : Ridho Pikriyansyah</p>_**
+**_<p>Kelas : TI.21.A.3</p>_**
+**_<p>Nim : 312110169</p>_**
+
 A new Flutter project.
 
 ## Getting Started
@@ -14,3 +18,13 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Output
+
+![roxyzc](./assets/ss/login.png)
+
+![roxyzc](./assets/ss/signup.png)
+
+![roxyzc](./assets/ss/forgot-password.png)
+
+![roxyzc](./assets/ss/error.png)

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+// import "package:firebase_auth/firebase_auth.dart";
 import "../../../components/my_text_form_field.dart";
 import '../../../components/my_button.dart';
 
@@ -61,8 +62,8 @@ class _Body extends State<ForgotPasswordBody> {
                   vertical: 10,
                   controller: newPasswordController,
                   hintText: "New Password",
-                  obscureText: true,
-                  icon: const Icon(Icons.lock),
+                  obscureText: false,
+                  icon: const Icon(Icons.email),
                 ),
                 MyButton(
                   horizontal: 0,
@@ -71,6 +72,10 @@ class _Body extends State<ForgotPasswordBody> {
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
                       // Navigator.of(context).pushNamed("main");
+                      // debugPrint(emailController.text);
+                      // FirebaseAuth.instance
+                      //     .sendPasswordResetEmail(email: emailController.text);
+
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                           content: Text("Feature not yet available")));
                     } else {
