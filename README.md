@@ -21,10 +21,6 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Output
 
-![roxyzc](./assets/ss/login.png)
+![roxyzc](./assets/ss/login.png) ![roxyzc](./assets/ss/signup.png)
 
-![roxyzc](./assets/ss/signup.png)
-
-![roxyzc](./assets/ss/forgot-password.png)
-
-![roxyzc](./assets/ss/error.png)
+![roxyzc](./assets/ss/forgot-password.png) ![roxyzc](./assets/ss/error.png)
