@@ -19,8 +19,16 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-## Output
+# Output
 
-![roxyzc](./assets/ss/login.png) ![roxyzc](./assets/ss/signup.png)
+## Login
+![roxyzc](./assets/ss/login.png)
 
-![roxyzc](./assets/ss/forgot-password.png) ![roxyzc](./assets/ss/error.png)
+## Signup
+![roxyzc](./assets/ss/signup.png)
+
+## Forgot Password
+![roxyzc](./assets/ss/forgot-password.png)
+
+## Error
+![roxyzc](./assets/ss/error.png)
